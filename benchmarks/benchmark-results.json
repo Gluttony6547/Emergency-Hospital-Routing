@@ -1,0 +1,72 @@
+[
+  {
+    "label": "10x10",
+    "nodes": 100,
+    "roads": 180,
+    "blockedRoads": 22,
+    "seed": "exam-2026",
+    "dijkstraDistance": 78,
+    "aStarDistance": 78,
+    "dijkstraRuntimeMs": 0.40620000000001255,
+    "aStarRuntimeMs": 0.23780000000002133,
+    "dijkstraVisited": 100,
+    "aStarVisited": 99,
+    "pathMatch": true
+  },
+  {
+    "label": "25x20",
+    "nodes": 500,
+    "roads": 955,
+    "blockedRoads": 168,
+    "seed": "exam-2026",
+    "dijkstraDistance": 156,
+    "aStarDistance": 156,
+    "dijkstraRuntimeMs": 0.5386000000000024,
+    "aStarRuntimeMs": 0.4292000000000087,
+    "dijkstraVisited": 500,
+    "aStarVisited": 500,
+    "pathMatch": true
+  },
+  {
+    "label": "40x25",
+    "nodes": 1000,
+    "roads": 1935,
+    "blockedRoads": 332,
+    "seed": "exam-2026",
+    "dijkstraDistance": 218,
+    "aStarDistance": 218,
+    "dijkstraRuntimeMs": 0.6569999999999823,
+    "aStarRuntimeMs": 0.6342999999999961,
+    "dijkstraVisited": 998,
+    "aStarVisited": 993,
+    "pathMatch": true
+  },
+  {
+    "label": "100x50",
+    "nodes": 5000,
+    "roads": 9850,
+    "blockedRoads": 1759,
+    "seed": "exam-2026",
+    "dijkstraDistance": 484,
+    "aStarDistance": 484,
+    "dijkstraRuntimeMs": 4.441200000000009,
+    "aStarRuntimeMs": 5.374200000000002,
+    "dijkstraVisited": 4990,
+    "aStarVisited": 4990,
+    "pathMatch": true
+  },
+  {
+    "label": "125x80",
+    "nodes": 10000,
+    "roads": 19795,
+    "blockedRoads": 3457,
+    "seed": "exam-2026",
+    "dijkstraDistance": 669,
+    "aStarDistance": 669,
+    "dijkstraRuntimeMs": 7.491299999999995,
+    "aStarRuntimeMs": 7.253700000000009,
+    "dijkstraVisited": 9983,
+    "aStarVisited": 9972,
+    "pathMatch": true
+  }
+]
