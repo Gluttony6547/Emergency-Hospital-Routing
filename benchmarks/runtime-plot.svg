@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+    <rect width="100%" height="100%" fill="#042b2a"/>
+    <text x="72" y="28" fill="#e6fff9" font-family="sans-serif" font-weight="700">SOS2BY ETA Runtime Benchmark</text>
+    <line x1="72" y1="448" x2="888" y2="448" stroke="#9ad4c9"/>
+    <line x1="72" y1="42" x2="72" y2="448" stroke="#9ad4c9"/>
+    
+    <line x1="72" y1="448" x2="72" y2="454" stroke="#9ad4c9"/>
+    <text x="72" y="474" text-anchor="middle">100</text>
+  
+    <line x1="357.17976176909565" y1="448" x2="357.17976176909565" y2="454" stroke="#9ad4c9"/>
+    <text x="357.17976176909565" y="474" text-anchor="middle">500</text>
+  
+    <line x1="480" y1="448" x2="480" y2="454" stroke="#9ad4c9"/>
+    <text x="480" y="474" text-anchor="middle">1000</text>
+  
+    <line x1="765.1797617690956" y1="448" x2="765.1797617690956" y2="454" stroke="#9ad4c9"/>
+    <text x="765.1797617690956" y="474" text-anchor="middle">5000</text>
+  
+    <line x1="888" y1="448" x2="888" y2="454" stroke="#9ad4c9"/>
+    <text x="888" y="474" text-anchor="middle">10000</text>
+  
+    <text x="460" y="478" text-anchor="middle" fill="#9ad4c9" font-family="sans-serif">Number of nodes (log scale)</text>
+    <text x="18" y="260" transform="rotate(-90 18 260)" text-anchor="middle" fill="#9ad4c9" font-family="sans-serif">Runtime (ms)</text>
+    <text x="62" y="42" text-anchor="end" fill="#9ad4c9" font-family="sans-serif">2.72</text>
+    <text x="62" y="448" text-anchor="end" fill="#9ad4c9" font-family="sans-serif">0</text>
+    <g fill="#e6fff9" font-family="sans-serif" font-size="13"><polyline points="72.00,402.29 357.18,418.35 480.00,415.59 765.18,394.06 888.00,42.00" fill="none" stroke="#30e7ff" stroke-width="3"/>
+<circle cx="72.00" cy="402.29" r="4" fill="#30e7ff"/>
+<circle cx="357.18" cy="418.35" r="4" fill="#30e7ff"/>
+<circle cx="480.00" cy="415.59" r="4" fill="#30e7ff"/>
+<circle cx="765.18" cy="394.06" r="4" fill="#30e7ff"/>
+<circle cx="888.00" cy="42.00" r="4" fill="#30e7ff"/>
+<polyline points="72.00,425.19 357.18,430.51 480.00,362.00 765.18,400.39 888.00,216.92" fill="none" stroke="#ffd166" stroke-width="3"/>
+<circle cx="72.00" cy="425.19" r="4" fill="#ffd166"/>
+<circle cx="357.18" cy="430.51" r="4" fill="#ffd166"/>
+<circle cx="480.00" cy="362.00" r="4" fill="#ffd166"/>
+<circle cx="765.18" cy="400.39" r="4" fill="#ffd166"/>
+<circle cx="888.00" cy="216.92" r="4" fill="#ffd166"/>
+<polyline points="72.00,440.32 357.18,378.75 480.00,437.65 765.18,446.35 888.00,336.06" fill="none" stroke="#a78bfa" stroke-width="3"/>
+<circle cx="72.00" cy="440.32" r="4" fill="#a78bfa"/>
+<circle cx="357.18" cy="378.75" r="4" fill="#a78bfa"/>
+<circle cx="480.00" cy="437.65" r="4" fill="#a78bfa"/>
+<circle cx="765.18" cy="446.35" r="4" fill="#a78bfa"/>
+<circle cx="888.00" cy="336.06" r="4" fill="#a78bfa"/>
+<polyline points="72.00,441.77 357.18,440.40 480.00,438.34 765.18,446.99 888.00,441.44" fill="none" stroke="#ff5a6a" stroke-width="3"/>
+<circle cx="72.00" cy="441.77" r="4" fill="#ff5a6a"/>
+<circle cx="357.18" cy="440.40" r="4" fill="#ff5a6a"/>
+<circle cx="480.00" cy="438.34" r="4" fill="#ff5a6a"/>
+<circle cx="765.18" cy="446.99" r="4" fill="#ff5a6a"/>
+<circle cx="888.00" cy="441.44" r="4" fill="#ff5a6a"/>
+    <rect x="72" y="486" width="12" height="12" fill="#30e7ff" rx="3"/>
+    <text x="90" y="496">dijkstra</text>
+  
+    <rect x="240" y="486" width="12" height="12" fill="#ffd166" rx="3"/>
+    <text x="258" y="496">astar</text>
+  
+    <rect x="408" y="486" width="12" height="12" fill="#a78bfa" rx="3"/>
+    <text x="426" y="496">bfs</text>
+  
+    <rect x="576" y="486" width="12" height="12" fill="#ff5a6a" rx="3"/>
+    <text x="594" y="496">greedy-bfs</text>
+  </g>
+  </svg>

@@ -1,0 +1,62 @@
+sos2by/
+├── index.html
+├── README.md
+├── package.json
+│
+├── css/
+│   └── style.css
+│
+├── data/
+│   └── surabaya-real-map.js
+│
+├── js/
+│   ├── main.js
+│   │
+│   ├── app/
+│   │   ├── app-state.js
+│   │   ├── app-controller.js
+│   │   ├── dom.js
+│   │   └── constants.js
+│   │
+│   ├── graph/
+│   │   ├── graph-model.js
+│   │   ├── real-surabaya-graph.js
+│   │   ├── synthetic-grid-graph.js
+│   │   ├── graph-utils.js
+│   │   └── priority-queue.js
+│   │
+│   ├── algorithms/
+│   │   ├── registry.js
+│   │   ├── dijkstra.js
+│   │   ├── astar.js
+│   │   ├── bfs.js
+│   │   └── greedy-bfs.js
+│   │
+│   ├── viewers/
+│   │   ├── viewer-manager.js
+│   │   ├── real-map-viewer.js
+│   │   ├── synthetic-grid-viewer.js
+│   │   └── animation-runner.js
+│   │
+│   ├── results/
+│   │   ├── metrics.js
+│   │   └── results-panel.js
+│   │
+│   └── utils/
+│       ├── format.js
+│       ├── random.js
+│       ├── geometry.js
+│       └── csv.js
+│
+├── scripts/
+│   ├── benchmark.js
+│   └── generate-plot.js
+│
+├── benchmarks/
+│   ├── benchmark-results.csv
+│   ├── benchmark-results.json
+│   └── runtime-plot.svg
+│
+└── docs/
+    ├── architecture.md
+    └── benchmark-method.md

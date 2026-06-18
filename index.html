@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOS2BY - Emergency Route Planner</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQdO35prjxDJiM0tJSFptxjHLLk/5rM=" crossorigin="" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="panel sidebar">
+      <header class="brand">
+        <div class="brand-mark">S2</div>
+        <div>
+          <h1>SOS2BY</h1>
+          <p>Emergency Route Planning on Surabaya City Map.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Map Source</h2>
+        <div class="segmented" id="mapSourceTabs">
+          <button type="button" class="active" data-map-source="real">Real Surabaya</button>
+          <button type="button" data-map-source="synthetic">Synthetic Grid</button>
+        </div>
+        <p class="inline-note" id="mapSourceNote">OpenStreetMap roads and real hospital markers.</p>
+      </section>
+
+      <section class="section" id="realEditor">
+        <h2>Map Editor</h2>
+        <label class="field">
+          Hospital destination
+          <select id="hospitalSelect"></select>
+        </label>
+        <div class="data-card">
+          <span>Road graph</span>
+          <strong id="realNodeCount">-</strong>
+        </div>
+        <div class="data-card">
+          <span>Hospitals</span>
+          <strong id="realHospitalCount">-</strong>
+        </div>
+        <p class="instruction" id="realInstruction">Determine your starting point by clicking on the map area.</p>
+        <button type="button" class="secondary full" id="resetRealStartBtn">Reset start point</button>
+      </section>
+
+      <section class="section hidden" id="syntheticEditor">
+        <h2>Map Editor</h2>
+        <label class="field">
+          Seed
+          <input id="seedInput" value="surabaya-118" />
+        </label>
+        <div class="two-col">
+          <label class="field">
+            Width
+            <input id="widthInput" type="number" min="10" max="125" value="100" />
+          </label>
+          <label class="field">
+            Height
+            <input id="heightInput" type="number" min="10" max="80" value="50" />
+          </label>
+        </div>
+        <label class="field">
+          Blocked road density <strong id="densityLabel">30%</strong>
+          <input id="densityInput" type="range" min="0" max="45" value="30" />
+        </label>
+        <div class="preset-row">
+          <button type="button" data-size="100">100</button>
+          <button type="button" data-size="500">500</button>
+          <button type="button" data-size="1000">1K</button>
+          <button type="button" data-size="5000">5K</button>
+          <button type="button" data-size="10000">10K</button>
+        </div>
+        <button type="button" class="primary full" id="generateGridBtn">Generate city grid</button>
+        <button type="button" class="secondary full" id="resetGridBtn">Reset synthetic grid</button>
+        <div class="segmented small" id="syntheticToolTabs">
+          <button type="button" class="active" data-tool="start">Set ambulance</button>
+          <button type="button" data-tool="target">Set hospital</button>
+          <button type="button" data-tool="toggle-block">Toggle block</button>
+        </div>
+        <p class="instruction" id="syntheticInstruction">Click a cell to place the ambulance, then drag A to move it.</p>
+      </section>
+
+      <section class="section">
+        <h2>Route Objective</h2>
+        <div class="segmented" id="objectiveTabs">
+          <button type="button" class="active" data-objective="eta">ETA seconds</button>
+          <button type="button" data-objective="distance">Distance meters</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Algorithms</h2>
+          <button type="button" id="toggleAlgorithmsBtn">Unselect all</button>
+        </div>
+        <div class="algorithm-list" id="algorithmList"></div>
+        <button type="button" class="primary full run-button" id="runBtn">Run selected algorithms</button>
+      </section>
+    </aside>
+
+    <main class="viewer-panel">
+      <div class="viewer-toolbar">
+        <div>
+          <h2 id="viewerTitle">Prepared viewer</h2>
+          <p id="statusText">Choose a map source, set endpoints, then run algorithms.</p>
+        </div>
+        <div class="toolbar-pills">
+          <span id="statePill">prepared</span>
+          <span id="graphPill">-</span>
+          <span id="objectivePill">ETA</span>
+        </div>
+      </div>
+      <div id="viewerGrid" class="viewer-grid single"></div>
+      <div class="viewer-footer" id="viewerFooter">Click the map to set your ambulance starting point.</div>
+    </main>
+
+    <aside class="panel results-panel">
+      <section class="section">
+        <h2>Results</h2>
+        <div id="resultCards" class="result-cards empty-state">Run algorithms to see route metrics.</div>
+      </section>
+
+      <section class="section">
+        <h2>Comparison</h2>
+        <div class="comparison-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Algorithm</th>
+                <th>Found</th>
+                <th>Runtime</th>
+                <th>Visited</th>
+                <th>ETA</th>
+                <th>Distance</th>
+                <th>Gap</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonBody">
+              <tr><td colspan="7">No comparison yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Benchmark Preview</h2>
+          <button type="button" id="refreshBenchmarkBtn">Refresh</button>
+        </div>
+        <div id="benchmarkPreview" class="benchmark-preview">Run <code>npm run benchmark</code> to generate benchmark files.</div>
+      </section>
+    </aside>
+
+    <footer class="status-bar">
+      <span id="footerGraphInfo">SOS2BY static frontend</span>
+      <span>Run <code>npm run benchmark</code> for reproducible timing.</span>
+      <span>Dijkstra, A*, BFS, Greedy BFS</span>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

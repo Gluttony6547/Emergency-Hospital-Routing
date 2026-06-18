@@ -1,0 +1,18 @@
+{
+  "name": "sos2by",
+  "version": "1.0.0",
+  "description": "Emergency Route Planning on Surabaya City Map using Dijkstra, A*, BFS, and Greedy Best-First Search.",
+  "type": "module",
+  "scripts": {
+    "dev": "npx http-server . -p 5173 -c-1",
+    "benchmark": "node scripts/benchmark.js",
+    "plot": "node scripts/generate-plot.js",
+    "check": "npm run benchmark && npm run plot"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
