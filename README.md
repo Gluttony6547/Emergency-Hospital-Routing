@@ -27,7 +27,8 @@ The application compares exact weighted search, informed search, unweighted base
 |  |  |
 | --- | --- |
 | Source Code | [GitHub](https://github.com/Gluttony6547/Emergency-Hospital-Routing) |
-| Demo | [sos2by.dapuntaratya.com](https://sos2by.dapuntaratya.com/) |
+| Demo (Maintained) | [sos2by.dapuntaratya.com](https://sos2by.dapuntaratya.com/) |
+| Demo (Alternative) | [103.30.195.224:50505](https://103.30.195.224:50505) |
 |  |  |
 
 ---
